@@ -1,0 +1,27 @@
+{
+  "os": "Windows-11-10.0.22631-SP0",
+  "python": "CPython 3.13.3",
+  "startedAt": "2025-05-26T12:04:42.260832Z",
+  "program": "c:\\Users\\gs\\OneDrive - Selectline Software AG\\Dokumente\\Studium\\SelectLAIne\\SelectLAIne\\main.py",
+  "codePath": "main.py",
+  "email": "schuegia@students.zhaw.ch",
+  "root": "C:\\Users\\gs\\OneDrive - Selectline Software AG\\Dokumente\\Studium\\SelectLAIne\\SelectLAIne",
+  "host": "SUPPORTPC07",
+  "executable": "C:\\Users\\gs\\OneDrive - Selectline Software AG\\Dokumente\\Studium\\SelectLAIne\\SelectLAIne\\venv\\Scripts\\python.exe",
+  "codePathLocal": "main.py",
+  "cpu_count": 12,
+  "cpu_count_logical": 20,
+  "disk": {
+    "/": {
+      "total": "509227298816",
+      "used": "506127904768"
+    }
+  },
+  "memory": {
+    "total": "16853479424"
+  },
+  "cpu": {
+    "count": 12,
+    "countLogical": 20
+  }
+}

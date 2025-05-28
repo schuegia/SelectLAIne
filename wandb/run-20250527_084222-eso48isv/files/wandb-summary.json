@@ -1,0 +1,1 @@
+{"_step":4,"query":"Wasfür Artikeltypen gibt es in SelectLine Auftrag?","answer":"Es gibt folgende Zeilentypen: Handelsstückliste, Artikel, Kommentar und Versand. Das Programm erkennt nach der Artikelauswahl automatisch den passenden Typ, z.B. bei Handelsstücklisten.","_timestamp":1.748328177477996e+09,"_runtime":34.9680511,"_wandb":{"runtime":34}}

@@ -1,0 +1,27 @@
+{
+  "os": "Windows-11-10.0.22631-SP0",
+  "python": "CPython 3.13.3",
+  "startedAt": "2025-05-27T15:04:14.488818Z",
+  "program": "c:\\Users\\gs\\OneDrive - Selectline Software AG\\Dokumente\\Studium\\SelectLAIne\\SelectLAIne OpenAI\\main copy OpenAI.py",
+  "codePath": "main copy OpenAI.py",
+  "email": "schuegia@students.zhaw.ch",
+  "root": "C:\\Users\\gs\\OneDrive - Selectline Software AG\\Dokumente\\Studium\\SelectLAIne\\SelectLAIne OpenAI",
+  "host": "SUPPORTPC07",
+  "executable": "C:\\Users\\gs\\OneDrive - Selectline Software AG\\Dokumente\\Studium\\SelectLAIne\\SelectLAIne OpenAI\\venv\\Scripts\\python.exe",
+  "codePathLocal": "main copy OpenAI.py",
+  "cpu_count": 12,
+  "cpu_count_logical": 20,
+  "disk": {
+    "/": {
+      "total": "509227298816",
+      "used": "499661254656"
+    }
+  },
+  "memory": {
+    "total": "16853479424"
+  },
+  "cpu": {
+    "count": 12,
+    "countLogical": 20
+  }
+}

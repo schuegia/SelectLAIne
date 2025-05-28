@@ -1,0 +1,10 @@
+{
+    "python.defaultInterpreterPath": "venv\\Scripts\\python.exe",
+    "python.terminal.activateEnvironment": true,
+    "python.venvPath": ".",
+    "python.analysis.extraPaths": [
+        "./app"
+    ],
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black"
+}
