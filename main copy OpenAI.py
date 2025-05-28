@@ -449,3 +449,5 @@ for q in examples:
         print(f" - {src}#chunk{chunk}")
     wandb.log({"query": q, "answer": ans})
 wandb.finish()
+
+# oh Cöbi
