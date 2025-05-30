@@ -8,21 +8,35 @@ Dieses Projekt implementiert ein Retrieval-Augmented Generation (RAG) System fü
 
 | Name       | URL                                                                                                                                       |
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| Code       | https://github.com/schuegia/erp-rag-system                                                                                             |
+| Code       | https://github.com/schuegia/SelectLAIne                                                                                             |
 | Demo (optional) | (z. B. Streamlit oder Huggingface Space) — _wird aktuell nicht öffentlich gehostet_                                                   |
-| Modellseite| Google Gemini 1.5 Pro („gemini-1.5-pro-latest“) via `langchain_google_genai` API ([Dokumentation](https://ai.google.dev/gemini-api/docs)) |
+| Embedding| "text-embedding-ada-002" von OpenAIEmbedding |
 
 ---
 
 ## Data Sources
 
-| Data Source                                                                            | Beschreibung                                             |
-|----------------------------------------------------------------------------------------|----------------------------------------------------------|
-| `data/SelectLine Auftrag Handbuch CH Aktuelle Version.pdf`                             | Modul Auftrag / Auftragsverwaltung                        |
-| `data/SelectLine Rechnungswesen Handbuch CH Aktuelle Version.pdf`                      | Modul Finanz- und Rechnungswesen                          |
-| `data/SelectLine Produktion Handbuch CH Aktuelle Version.pdf`                          | Modul Fertigung / Produktion                              |
-| `data/SelectLine Lohn Handbuch CH Aktuelle Version.pdf`                                | Modul Lohnbuchhaltung / swissdec                          |
-| `data/Schulungsunterlagen *.pdf`                                                       | Erweiterte Trainingsunterlagen für Einsteiger & Profis    |
+| Data Source                                                                                 | Beschreibung                                           |
+|---------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| `data/Schulungsunterlagen Auftrag Einsteiger.pdf`                                           | Schulungsunterlagen Einsteiger – Modul Auftrag         |
+| `data/Schulungsunterlagen Auftrag Fortgeschritten.pdf`                                      | Schulungsunterlagen Fortgeschritten – Modul Auftrag    |
+| `data/Schulungsunterlagen Auftrag Profi_.pdf`                                              | Schulungsunterlagen Profi – Modul Auftrag              |
+| `data/Schulungsunterlagen CRM.pdf`                                                          | Schulungsunterlagen – Modul CRM                        |
+| `data/Schulungsunterlagen Dashboard.pdf`                                                    | Schulungsunterlagen – Dashboard & Reporting            |
+| `data/Schulungsunterlagen Formulareditor.pdf`                                              | Schulungsunterlagen – Formular-Editor                  |
+| `data/Schulungsunterlagen Lohn mit swissdec5.pdf`                                          | Schulungsunterlagen – Modul Lohnbuchhaltung (Swissdec)|
+| `data/Schulungsunterlagen Makroassistent.pdf`                                              | Schulungsunterlagen – Makro-Assistent                  |
+| `data/Schulungsunterlagen Toolbox.pdf`                                                     | Schulungsunterlagen – Toolbox & Add-ons                |
+| `data/Schulungsunterlagen Fibu.pdf`                                                        | Schulungsunterlagen – Finanzbuchhaltung (Fibu)         |
+| `data/SelectLine Auftrag Handbuch CH Aktuelle Version (1).pdf`                             | Offizielles Handbuch – Modul Auftrag                   |
+| `data/SelectLine CRM Handbuch CH Aktuelle Version.pdf`                                     | Offizielles Handbuch – Modul CRM                       |
+| `data/SelectLine Kassabuch Handbuch CH Aktuelle Version.pdf`                               | Offizielles Handbuch – Modul Kassabuch                 |
+| `data/SelectLine Lohn Handbuch CH Aktuelle Version.pdf`                                     | Offizielles Handbuch – Modul Lohnbuchhaltung           |
+| `data/SelectLine Mobile Handbuch CH Aktuelle Version.pdf`                                   | Offizielles Handbuch – Modul Mobile App                |
+| `data/SelectLine Produktion Handbuch CH Aktuelle Version.pdf`                               | Offizielles Handbuch – Modul Produktion/Fertigung      |
+| `data/SelectLine Rechnungswesen Handbuch CH Aktuelle Version.pdf`                           | Offizielles Handbuch – Modul Rechnungswesen            |
+| `data/SelectLine System Handbuch CH Aktuelle Version.pdf`                                   | Offizielles Handbuch – System- und Konfigurations-Module|
+
 
 ---
 
