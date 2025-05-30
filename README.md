@@ -42,19 +42,46 @@ Dieses Projekt implementiert ein Retrieval-Augmented Generation (RAG) System fü
 
 ## RAG Improvements
 
-| Improvement                               | Beschreibung                                                                                                 |
-|-------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| Structural Chunking                       | Apache Tika → XHTML-Parsing von `<h1–h3>` & `<p>` → echte Sections statt starrer Zeichen-Blöcke              |
-| Chunk Refinement                          | Post-Tika Split in 1000 Zeichen mit 100 Zeichen Overlap                                                      |
-| Targeted OCR                              | `pdfplumber` + `pytesseract` nur auf Screenshots → UI-Labels und Fehlermeldungen werden zuverlässig erkannt |
-| Product Mapping                           | Keyword-Mapping auf PDF-Quelle, um Modul-Fokus zu verstärken                                                   |
-| Query Transformation (HyDE)               | Hypothetical Document Embeddings via fiktive Antwort → MMR Search nach Pseudo-Docs                           |
-| Query Expansion                           | LLM-Chain generiert 3–5 Synonyme/Term-Varianten für bessere Recall                                           |
-| Retrieval via MMR + Cosine                | FAISS `max_marginal_relevance_search` mit Cosine-Distance                                                    |
-| Cross-Encoder Reranking                   | LLMChain ordnet Top-Hits neu                                                                                  |
-| LLM-gestützte Selection                   | Auswahl der 4 relevantesten Chunks aus den Top-5                                                              |
-| Compression                               | LLM-Chain fasst die finalen Chunks zusammen                                                                  |
-| Generator-Verifikation                    | LLM-Prompt überprüft Antwort mit Kontext und löst ggf. Fallback Retrieval aus                                |
+### Indexing
+- **Structural Chunking**  
+  Apache Tika→XHTML-Parsing von `<h1–h3>` & `<p>` → echte Sections statt starrer Text-Blöcke  
+- **Chunk Refinement**  
+  Feinsplit in 1000 Zeichen mit 100 Zeichen Overlap  
+- **Targeted OCR**  
+  `pdfplumber` + `pytesseract` nur auf Screenshots → UI-Labels und Fehlermeldungen zuverlässig extrahiert  
+- **Product Mapping**  
+  Keyword-Map auf PDF-Quelldokumente, um Modul-Fokus zu stärken  
+
+---
+
+### Pre-Retrieval
+- **Query Transformation (HyDE)**  
+  Hypothetical Document Embeddings via fiktive Antwort → MMR-Search nach Pseudo-Dokumenten  
+- **Query Expansion**  
+  LLM-Chain generiert 3–5 Synonyme/Term-Varianten für bessere Recall-Rate  
+
+---
+
+### Retrieval
+- **MMR Retrieval mit Cosine**  
+  FAISS `max_marginal_relevance_search` mit Cosine-Distance (`k=5`, `fetch_k=40`, `λ=0.7`)  
+
+---
+
+### Post-Retrieval
+- **Cross-Encoder Reranking**  
+  LLMChain re-ordnet die Top-Hits nach echter Relevanz  
+- **LLM-gestützte Selection**  
+  Automatische Auswahl der 4 wichtigsten Chunks aus den Top-5  
+- **Compression**  
+  Zusammenfassung der finalen Chunks per LLM für kompakten Kontext  
+
+---
+
+### Generation
+- **Generator-Verifikation**  
+  LLM prüft, ob die Antwort vollständig durch den Kontext gedeckt ist und löst ggf. Fallback-Retrieval aus  
+
 
 ---
 
