@@ -146,7 +146,3 @@ Dieses Projekt implementiert ein Retrieval-Augmented Generation (RAG) System fü
 - **dotenv**, **openai**, **langchain_google_genai**  
 
 ---
-
-## License
-
-Gian Schürch / SelectLine Software AG 

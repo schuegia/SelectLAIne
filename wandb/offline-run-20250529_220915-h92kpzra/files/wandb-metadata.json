@@ -1,0 +1,31 @@
+{
+  "os":  "Windows-11-10.0.26100-SP0",
+  "python":  "3.12.3",
+  "startedAt":  "2025-05-29T20:09:15.767989Z",
+  "program":  "c:\\Users\\Giani\\OneDrive\\Documents\\ZHAW\\6. Semester\\AI Applications\\SelectLAIne\\SelectLAIne\\main copy OpenAI.py",
+  "codePath":  "main copy OpenAI.py",
+  "git":  {
+    "remote":  "https://github.com/schuegia/SelectLAIne.git",
+    "commit":  "e5a7ac7ebf48d796140166119a5b1ee023d04676"
+  },
+  "root":  "C:\\Users\\Giani\\OneDrive\\Documents\\ZHAW\\6. Semester\\AI Applications\\SelectLAIne\\SelectLAIne",
+  "host":  "LAPTOP-VB67JINB",
+  "username":  "Giani",
+  "executable":  "C:\\Users\\Giani\\OneDrive\\Documents\\ZHAW\\6. Semester\\AI Applications\\SelectLAIne\\SelectLAIne\\.venv\\Scripts\\python.exe",
+  "codePathLocal":  "main copy OpenAI.py",
+  "cpu_count":  10,
+  "cpu_count_logical":  12,
+  "disk":  {
+    "/":  {
+      "total":  "509722226688",
+      "used":  "226545733632"
+    }
+  },
+  "memory":  {
+    "total":  "16847527936"
+  },
+  "cpu":  {
+    "count":  10,
+    "countLogical":  12
+  }
+}

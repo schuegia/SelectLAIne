@@ -1,0 +1,248 @@
+[
+  {
+    "question": "Liste mir alle Module/Produkte von SelectLine auf",
+    "answer": "SELECTLINE PRODUKTION, SELECTLINE AUFTRAG, SelectLine Mobile,  SELECTLINE Artikelmanager und SELECTLINE MDE (Mobile Daten Erfassung).\n",
+    "source": "SelectLine Auftrag Handbuch CH Aktuelle Version (1).pdf::None",
+    "chunk": 1460
+  },
+  {
+    "question": "Gib mir einen groben Überblick, was SelectLine CRM für Funktionen bietet",
+    "answer": "SelectLine-CRM bietet folgende Funktionen: zentrale Kontaktverwaltung, E-Mail-Korrespondenz, Serienbrief-Funktionen, Volltextsuche und Zugriff auf Dashboards und Verkaufschancen. Außerdem bietet es diverse Recherchen und Suchmöglichkeiten, vielfältige Kontaktarten und Stichwortverwaltung, internes E-Mail-Programm, Verwendung von Outlook mit SelectLine Outlook Add-In, CTI - ein- und ausgehende Telefonate (TAPI), kaufmännische Daten in komprimierter und übersichtlicher Form und Umkreissuche. Neu sind eine integrierte Kalenderfunktion, vereinfachter Maskeneditor, Verknüpfung von Beziehungen einer Person zu mehreren Firmenadressen, freie Personen anlegen, Kopierfunktion bei Recherchen, beliebig viele Verknüpfungen in der Recherche, Recherche über Belege, Journal, Stichworte und Umkreissuche, Kampagnenmanagement, Dublettenkontrolle, Dashboard und Verkaufschancen.\n",
+    "source": "Schulungsunterlagen CRM.pdf::None",
+    "chunk": 19
+  },
+  {
+    "question": "Wie richte ich Benutzerrechte in SelectLine ein?",
+    "answer": "In SELECTLINE MOBILE werden Benutzerrechte über Rollen und individuelle Benutzerberechtigungen verwaltet. Ein Benutzer kann mehreren Rollen zugeordnet werden und erbt deren Rechte. Diese können individuell angepasst und überschrieben werden. Administratoren oder Benutzer mit entsprechenden Rechten können die Einstellungen anderer Benutzer ändern. Die Rechtevergabe erfolgt über die Benutzerverwaltung, wo Administratoren Berechtigungen aktivieren und deaktivieren können.  In der Benutzerverwaltung wählt man den Benutzer aus, dessen Rechte man anpassen will und wählt anschließend den Menüpunkt \"Rechte\".\n",
+    "source": "SelectLine Lohn Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 103
+  },
+  {
+    "question": "Können Rechte vererbt werden?",
+    "answer": "Ja, Rechte können vererbt werden.  Mehrere Benutzer können auf die Rechte eines anderen Benutzers (als Rolle) verweisen. Bestehende Benutzerrechte bleiben bei Updates erhalten und werden automatisch an das neue System angepasst.  Werden Rechte geerbt, müssen bei abhängigen Datenrechten (z.B. Löschen, Anlegen oder Kopieren von Lesen) erst die übergeordneten Rechte individuell erlaubt werden, anderenfalls kann ein abhängiges Recht nur erben oder verboten werden.\n",
+    "source": "SelectLine System Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 258
+  },
+  {
+    "question": "Erzähl mir mehr über dieses Thema",
+    "answer": "Diese Notizen handeln von der Erstellung und Verwaltung von Produktvarianten, der Preisgestaltung (Zuschläge, Zubehör) und Kundenkreditlimits in einem System.  Es wird beschrieben, wie man Varianten anhand von Merkmalen generiert und diese in Verkaufsbelegen verwendet.  Außerdem geht es um die Konfiguration von Warnmeldungen bei niedrigen Kreditlimits oder Mindestumsätzen.  Schließlich gibt es noch einen Hinweis auf die Mahnhistorie.\n",
+    "source": "Schulungsunterrlagen Fibu.pdf::None",
+    "chunk": 107
+  },
+  {
+    "question": "Welche Auswertungen können in SelectLine Rechnungswesen gemacht werden?",
+    "answer": "In SELECTLINE Rechnungswesen können unter anderem folgende Auswertungen erstellt werden: Saldoliste mit Monatssummen, Bilanz, Erfolgsrechnung, Kennzahlen und Auswertungen im Zusammenhang mit dem 13. Monatslohn (Übersicht über getätigte und offene Zahlungen). Darüber hinaus bietet SELECTLINE REPORTING 26 vorgefertigte Auswertungen sowie die Möglichkeit zur Modifikation und Erweiterung.  Es gibt auch Auswertungen für Umsatzentwicklung bzw. Umsatzanteil (für Artikel, Kunden und Vertreter) und Kostenentwicklung bzw. Kostenanteil (für Artikel und Lieferanten) in grafischer Darstellung.  Zusätzlich ist eine Auswertung des Anteils am Gesamtumsatz (für Artikel, Kunden und Vertreter) und an den Gesamtkosten (für Artikel und Lieferanten) möglich.\n",
+    "source": "SelectLine Rechnungswesen Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 850
+  },
+  {
+    "question": "Können Kundenspezifische Preise vergeben werden?",
+    "answer": "Ja, Sie können für jeden Artikel und Kunden individuelle Preise in verschiedenen Währungen festlegen, inklusive Gültigkeitszeitraum, Rabattstaffeln und Steuertyp. Diese Kundenpreise können in den Stammdaten verwaltet und bei aktivierter Option \"Kundenpreise bei Belegerfassung aktualisieren\" direkt bei der Belegerstellung geändert werden.\n",
+    "source": "SelectLine Auftrag Handbuch CH Aktuelle Version (1).pdf::None",
+    "chunk": 416
+  },
+  {
+    "question": "Wie funktioniert die Preisbestimmung eines Artikels?",
+    "answer": "SelectLine berechnet Verkaufspreise automatisch anhand von Kalkulationsschemata, die Sie Artikeln zuordnen. Änderungen am Einstandspreis führen zur automatischen Neuberechnung der Verkaufspreise (Listenpreis, Preisgruppen 1-9). Manuelle Preise (Aktion, Kunde, Staffel) müssen weiterhin manuell gepflegt werden. Sie können auch Preise in verschiedenen Währungen hinterlegen, die abhängig von Belegwährung, Kunde, Datum und Menge im Beleg verwendet werden.\n",
+    "source": "SelectLine Auftrag Handbuch CH Aktuelle Version (1).pdf::None",
+    "chunk": 787
+  },
+  {
+    "question": "Wie funktioniert die OP-Verwaltung?",
+    "answer": "Offene Posten (OP) werden zentral vom Verband verwaltet. Rechnungen an Mitglieder führen zu einem OP für den Verband, nicht für das Mitglied selbst. Der Verband erhält die Zahlungen und Mahnungen. Mitglieder erhalten nur informelle Zahlungserinnerungen.  Die OP-Verwaltung (Zahlungslauf, Mahnungen etc.) läuft komplett über den Zentralregulierer (Verband). Wird mit einer Rechnung ein Mitgliedskonto bebucht, dann erfolgt automatisch eine Umbuchung auf das Verbandskonto.\n",
+    "source": "SelectLine Rechnungswesen Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 177
+  },
+  {
+    "question": "Wo kann ich die Erfolgsrechnung anzeigen lassen?",
+    "answer": "Unter „Auswertungen/Jahresauswertungen/Erfolgsrechnung“.\n",
+    "source": "SelectLine Rechnungswesen Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 849
+  },
+  {
+    "question": "Wie kann ich einen neuen Mandanten eröffnen?",
+    "answer": "Mit dem Schalter \"Neu\" in der Mandantenverwaltung kann ein neuer Mandant angelegt werden.  Dabei führt Sie ein Assistent durch die Eingabe der notwendigen Daten und Sie können Daten von einem Vorlagemandanten übernehmen.\n",
+    "source": "SelectLine Kassabuch Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 111
+  },
+  {
+    "question": "Wie erstelle ich eine Datensicherung?",
+    "answer": "Sie finden die Sicherungsfunktion unter \"Applikationsmenü/Wartung/Datensicherung\".  Zusätzlich können Sie die Verzeichnisse DATEN; SYSTEM und MAKRO mit allen Unterverzeichnissen und die Verzeichnisse SYSTEM und MAKRO sichern. Die Datenbanken (SL_Daten, Mandanten- und Jahresdatenbanken) sind separat durch externe Programme oder einen Wartungsplan (SQL Server Management Studio) zu sichern.\n",
+    "source": "Schulungsunterlagen Lohn mit swissdec5.pdf::OCR",
+    "chunk": 2
+  },
+  {
+    "question": "Wie richte ich SelectLine Mobile ein?",
+    "answer": "Die Einrichtung des Webservers, der Datenbank-Konfiguration bis zur Auswahl der Webseite wird ausführlich unter SelectLine Mobile Manager beschrieben. Die Einrichtung der Webseite selbst erfolgt über den \" SL.mobile Manager \" und ist analog zur Einrichtung von SL.MOBILE durchzuführen.\n",
+    "source": "SelectLine Mobile Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 0
+  },
+  {
+    "question": "Was kann das Dashboard anzeigen?",
+    "answer": "Das Dashboard bietet eine grafische Übersicht wichtiger Kennzahlen und Vorgänge. Es zeigt auch laufende Vorgänge und wichtige Unternehmensinformationen an.  Es können System-Widgets verwendet werden, z.B. zur Anzeige eigener Journale und Verteiler, und es können eigene Abfragen erstellt werden, z.B. für offene Belege.  Die nicht verrechneten Leistungen können farblich hervorgehoben werden.\n",
+    "source": "SelectLine System Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 970
+  },
+  {
+    "question": "Was kann man mit dem Makroassistenten machen?",
+    "answer": "Mit dem Makro-Assistenten kann man Makros erstellen und ausführen. Beispiele hierfür sind Datenbankabfragen mit SQL, Dateioperationen und Programmstarts. Vordefinierte Makros sind über den Menüpunkt \"Makros\" verfügbar.  Man kann auch Ausführungskommandos für Dateien oder Programme ablegen und z.B. Excel- oder Worddokumente bearbeiten, Ordner anzeigen lassen oder beliebige Programme starten.\n",
+    "source": "Schulungsunterlagen Makroassistent.pdf::None",
+    "chunk": 13
+  },
+  {
+    "question": "Erzähl mir mehr über dieses Thema",
+    "answer": "Die Menüleiste hat hierarchisch strukturierte Programmfunktionen mit Symbolen. Untermenüs werden durch Pfeile angezeigt. Kontextmenüs bieten Optionen wie \"Menü verkleinern\". Die Suche erlaubt Teilbegriffe (Groß-/Kleinschreibung beachten) und kann mit kaufmännischen Daten (Umsatz, Artikel, etc.) kombiniert werden. [F7] zeigt eine Vorschau der Suchergebnisse. Markierte Datensätze werden farblich hervorgehoben und können über das Kontextmenü gefiltert werden. Summen und Zusatzinformationen sind optional anzeigbar. Datum, Uhrzeit und Info-Texte können unten am Bildschirmrand eingeblendet werden. E-Mails lassen sich in Text- oder HTML anzeigen, mit Notizfeld und Anhangsbearbeitung. IMAP-Unterstützung ermöglicht serverbasierte Mailverwaltung. Über \"Hilfe / Programm / Nachricht senden\" können Nachrichten an andere Benutzer im Netz versendet werden.  Der Empfänger wird aus den aktuell aktiven Benutzern ausgewählt.  Der Eingang neuer Nachrichten kann zeitgesteuert über Applikationsmenü / Einstellungen / Zeiten geprüft werden.\n",
+    "source": "SelectLine System Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 97
+  },
+  {
+    "question": "Wie muss eine \"Select\" DML-Anweisung aufgebaut sein? Gib mir ein Beispiel",
+    "answer": "Die Grundstruktur einer SQL-Abfrage (SELECT) ist: `SELECT Spalten FROM Tabelle WHERE Bedingung`.  Optional kann man mit `GROUP BY` gruppieren und mit `HAVING` Bedingungen für Gruppen festlegen. `ORDER BY` sortiert die Ergebnisse und `DISTINCT` entfernt Duplikate.\n\nEin Beispiel für eine Abfrage aus zwei Tabellen mit Alias:\n\n```sql\nselect k.Nummer, k.Name, l.Nummer, l.Name from kunden k, liefer l \n```\n",
+    "source": "SelectLine Kassabuch Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 377
+  },
+  {
+    "question": "Wie kann ich meine Daten aus SelectLine Auftrag in SelectLine Rechnungswesen exportieren?",
+    "answer": "Wenn SelectLine Rechnungswesen auf demselben Rechner oder Netzwerk installiert ist, können die Lohnabrechnungen per Direktexport ins Rechnungswesen exportiert werden. Ist keine Direktkopplung ausgewählt, können die Buchungen per Stapel-Datei übergeben werden.  Der Export von Daten aus SELECTLINE AUFTRAG erfolgt über \"Schnittstellen / Programme / Shop / SelectLine eCommerce / Datenexport\". Für den Export von Rechnungen in die Finanzbuchhaltung gibt es die Möglichkeit des Direktexports (z.B. an SELECTLINE Fibu, Sage 50) oder des Stapelexports.\n",
+    "source": "SelectLine Kassabuch Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 20
+  },
+  {
+    "question": "Wie wird die Mehrwertsteuer einer Rechnung verbucht?",
+    "answer": "Die Mehrwertsteuer wird in der Regel \"Brutto\" berechnet. Es gibt drei Steuerarten: Vorsteuer (Eingangsbelege Inland), Umsatzsteuer (Ausgangsbelege Inland), und Erwerbsteuer / Reverse Charge (Eingangsbelege innergemeinschaftlicher Erwerb und Leistungen §13b UStG). Der Steuerbetrag kann auf 5 Rappen gerundet werden und bei Bedarf während der Buchung geändert werden.  Zusätzlich gibt es die Formel Steuerbetrag = Bruttobetrag / 100 * Steuerprozent / 100 * Quote.\n",
+    "source": "Schulungsunterrlagen Fibu.pdf::None",
+    "chunk": 84
+  },
+  {
+    "question": "Wie kann ich eine Rechnung stornieren?",
+    "answer": "Buchungen können nicht gelöscht oder korrigiert werden, sondern nur storniert. Durch Drücken von F8 oder des Stornier-Icons erscheint die Abfrage, ob die Buchung storniert werden soll.\n",
+    "source": "SelectLine Rechnungswesen Handbuch CH Aktuelle Version.pdf::OCR",
+    "chunk": 139
+  },
+  {
+    "question": "Wie kann ich eine elektronische Lohnmeldung auslösen?",
+    "answer": "Unter \"Schnittstellen / Elektronische Lohnmeldung\" (SWISSDEC) finden Sie die Funktionen, um das Elektronische Lohnmeldeverfahren zu benutzen. Aktivieren Sie im Dialog der elektronischen Lohnmeldung das entsprechende Flag und übermitteln Sie die Daten.\n",
+    "source": "SelectLine Lohn Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 488
+  },
+  {
+    "question": "Wie funktioniert ein Fertigungsauftrag?",
+    "answer": "Fertigungsaufträge werden ausgelöst, wenn ein Artikel vom Typ Fertigung für Kundenaufträge erst gefertigt werden muss.  Der Artikel kann z.B. aus mehreren Einzelteilen bestehen und muss erst montiert werden, oder er wird überhaupt erst für einen Kundenauftrag hergestellt. Ein Fertigungsauftrag enthält immer eine Fertigungsliste mit Fertigungsschritten. Jeder Schritt kann Verbrauchsartikel, Ergebnisartikel und Kommentare enthalten. Mindestens ein Fertigungsschritt und ein Ergebnisartikel sind erforderlich.  Die Fertigungsliste kann auch nachträglich erstellt oder aus bestehenden Listen eingefügt werden.  Bei Artikelauswahl werden nur Artikel vom Typ Fertigung mit zugeordneter Fertigungsliste angeboten. Die zu fertigende Menge (bei Verwendung eines Arbeitsplans) muss ein Vielfaches der Losgröße sein. Abweichungen sind nur über einen gesonderten Arbeitsplan möglich. Im unteren Teil der Maske werden Arbeitsschritte angelegt, die für die Zeitplanung in der Produktionssteuerung notwendig sind. Der Termin berechnet sich aus \"Heute\" + \"Vorlauffrist\" der Fertigungsliste. Angezeigt werden auch die eingelagerte Teilmenge und der Status (In Bearbeitung, Freigegeben, Erledigt).  Jeder Status erlaubt verschiedene Anpassungen.\n",
+    "source": "SelectLine Produktion Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 86
+  },
+  {
+    "question": "Wie ist eine Fertigungsliste aufgebaut?",
+    "answer": "Die Fertigungsliste definiert Arbeitsschritte mit Zeiteinheiten, benötigte Materialien und mindestens einen Ergebnisartikel. Sie enthält alle Unterebenen, benötigten Materialien (Verbrauchsartikel) und Arbeitsschritte.  Zusätzliche Informationen wie Positionsnummer, Artikelnummer, Bezeichnung, Zusatz, Typ, Betriebsmittel und Ressourcen-ID können über den Spalteneditor eingeblendet werden.  Mindestens ein Arbeitsschritt muss enthalten sein.\n",
+    "source": "SelectLine Auftrag Handbuch CH Aktuelle Version (1).pdf::None",
+    "chunk": 1388
+  },
+  {
+    "question": "Für was ist die Planzeit in einem Arbeitsschritt in SelectLine Produktion?",
+    "answer": "Mit der Planzeit wird die Dauer der Arbeitsschritte ermittelt und die Planung durchgeführt.\n",
+    "source": "SelectLine Produktion Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 70
+  },
+  {
+    "question": "Welche Einstellungsmöglichkeiten gibt es für die Produktionssteuerung?",
+    "answer": "Die Produktionssteuerungssoftware bietet Stammdatenverwaltung für Produktionsplanung, Stücklisten, Arbeitsschritte, Ressourcen, Fertigungsaufträge, Auswertungen und mehr. Diverse Einstellungen, wie z.B. automatische Terminberechnung und Lagerungsdaten, können konfiguriert werden. Die Planung kann auf Basis verschiedener Auftragstypen erfolgen (Fertigungs-, Werk- oder beide).  In den Optionen kann der auszuwertende Belegtyp (Fertigungs- und Werkauftrag, nur Fertigungsauftrag, nur Werkauftrag) festgelegt werden, sowie die Preisherkunft, die gewünschte Lageraktion und der Workflow im RMA-Prozess. Außerdem können Betriebsmittelfilter, Anzahl der angezeigten Tage und Parameter des Scroll-Balkens eingestellt werden. Bei der Mitarbeiterplanung kann zwischen Pauschal- und Zeitplanung gewählt werden.\n",
+    "source": "SelectLine Auftrag Handbuch CH Aktuelle Version (1).pdf::None",
+    "chunk": 1382
+  },
+  {
+    "question": "Was kann man mit dem Formulareditor machen?",
+    "answer": "Mit dem Formulareditor kann man Druckvorlagen bearbeiten. Änderungen werden in der Vorschau live angezeigt und durch Speichern übernommen. Gleichzeitiges Bearbeiten derselben Vorlage ist nicht möglich, verschiedene Vorlagen können aber parallel bearbeitet werden. Man kann per [Strg] + Doppelklick (linke Maustaste) in der Vorschau direkt zu einem Platzhalter springen. Die F12-Funktion bei markiertem Platzhalter bleibt bestehen. Der Zoomfaktor bleibt beim Bearbeiten erhalten.  Es können nur Formulare der aktuell ausgewählten Druckvorlagenart bearbeitet werden. Der Editor wird über ein Symbol (nicht näher spezifiziert) in der Druckansicht geöffnet.\n",
+    "source": "SelectLine System Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 628
+  },
+  {
+    "question": "Was muss ich bei einem Jahreswechsel machen?",
+    "answer": "Der Jahreswechsel-Dialog erlaubt die Konfiguration des neuen Buchungsjahres (inkl. Anpassung des Buchungszeitraums). Stammdaten können selektiv übernommen werden, wobei Inkonsistenzen protokolliert werden. Vor dem Jahreswechsel erfolgt eine Berechtigungsprüfung. Buchungskreise können optional übernommen werden. Der erste Jahreswechsel erfordert \"sysadmin\"-Rechte. Wiederholte Jahreswechsel führen zu einer Saldokorrektur.\n",
+    "source": "SelectLine Rechnungswesen Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 55
+  },
+  {
+    "question": "Wie richte ich einen quellensteuerpflichtigen Mitarbeiter ein?",
+    "answer": "Um einen quellensteuerpflichtigen Mitarbeiter einzurichten, muss zunächst die Quellensteuerfunktion in der Filiale aktiviert und die Tarifdatei des jeweiligen Kantons (Kapitel 5.2.3) heruntergeladen werden. Im Mitarbeiterdatensatz sind folgende Angaben wichtig: Quellensteuerkanton, Quellensteuercode (wird automatisch generiert), \"QSTBerechtigtAb\"-Datum (bei Kindern) und Wohnadresse.  Für in der Schweiz wohnhafte Personen kann die Wohnadresse aus den Stammdaten übernommen werden.  Zusätzlich müssen die Quellensteuerdetails (inkl. Nachzahlungsanspruch) und die Daten für die Lohnstrukturerhebung gepflegt werden. Die Fibukonten müssen mit der Buchhaltungssoftware übereinstimmen.  Beachten Sie, dass diverse Felder erst freigeschaltet werden, wenn bestimmte Voraussetzungen erfüllt sind.\n",
+    "source": "Schulungsunterlagen Lohn mit swissdec5.pdf::None",
+    "chunk": 103
+  },
+  {
+    "question": "Wasfür Individualisierungsmöglichkeiten gibt es in SelectLine?",
+    "answer": "Mit SELECTLINE MDE können Sie die Aktionen auf der Startseite individuell anpassen, inklusive deren Verfügbarkeit, Reihenfolge, Icon, Bezeichnung und Farbe.  Belegaktionen können beliebig hinzugefügt und detaillierter angepasst werden.  Es gibt auch anpassbare Formulare und Ausdrucke.\n",
+    "source": "SelectLine Mobile Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 218
+  },
+  {
+    "question": "Welche Funktionen hat SelectLine Rechnungswesen, welche SelectLine Kassabuch nicht hat?",
+    "answer": "Der Text besagt, dass das Kassenbuch-Modul als reine Einnahme-Überschuss-Rechnung *oder* in Verbindung mit anderen Modulen *als Kassenbuch* genutzt werden kann.  Es wird auch erwähnt, dass Kostenstellen/-träger erst im Zusammenhang mit SelectLine Rechnungswesen eine Funktion erhalten und der Lohn selbst keine Kostenstellenverwaltung bietet. Daher kann man schließen, dass SelectLine Rechnungswesen mindestens die Kostenstellenverwaltung bietet, die SelectLine Kassenbuch (in der reinen EÜR-Variante) nicht hat.  Die Frage nach *allen* Funktionen, die Rechnungswesen hat, aber Kassenbuch nicht, kann nicht beantwortet werden.\n",
+    "source": "SelectLine Kassabuch Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 20
+  },
+  {
+    "question": "Was bedeutet der Fehlermeldung ‚Zugriff verweigert: Code 403‘ ?",
+    "answer": "Dazu habe ich keine Information.\n",
+    "source": "SelectLine Mobile Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 53
+  },
+  {
+    "question": "Welche Spaltennamen hat die Tabelle ‚Lohnarten‘ im Lohn-Handbuch?",
+    "answer": "Dazu habe ich keine Information.  Der Text erwähnt zwar \"Lohnarten\", aber nicht die Spaltennamen einer solchen Tabelle.  Es wird lediglich der Aufbau des Lohn-Handbuchs beschrieben.\n",
+    "source": "Schulungsunterlagen Dashboard.pdf::OCR",
+    "chunk": 10
+  },
+  {
+    "question": "Beschreibe Schritt 4 bis 6 beim Jahresabschluss-Prozess im Rechnungswesen.",
+    "answer": "Dazu habe ich keine Information.  Der Text beschreibt zwar die Erstellung und Auflösung von Rechnungsabgrenzungsposten, aber nicht die Schritte eines Jahresabschlussprozesses.\n",
+    "source": "Schulungsunterrlagen Fibu.pdf::None",
+    "chunk": 11
+  },
+  {
+    "question": "Wie exportiere ich Produktionsdaten aus SelectLine Produktion in SelectLine Auftragsverwaltung?",
+    "answer": "Dazu habe ich keine Information.\n",
+    "source": "SelectLine Produktion Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 31
+  },
+  {
+    "question": "Welche Performance-Einstellungen kann ich in der config.json für große Datenmengen vornehmen?",
+    "answer": "Dazu habe ich keine Information. Die Konfiguration für große Datenmengen erfolgt in der MDE Konfiguration durch die Option \"pageSize\", nicht in der config.json.\n",
+    "source": "SelectLine Mobile Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 293
+  },
+  {
+    "question": "Nenne drei Beispiel-Anpassungen, die man im Formulareditor vornehmen kann.",
+    "answer": "Im Kontext werden als Beispiele für Anpassungen im Formulareditor das Einfügen eines Firmenlogos, das Hinzufügen von Kontodaten in der Fußzeile und die Anpassung der Darstellung von Platzhaltern (Schriftart, -größe, Hintergrund- und Schriftfarbe) genannt.\n",
+    "source": "Schulungsunterlagen Formulareditor.pdf::None",
+    "chunk": 25
+  },
+  {
+    "question": "Was muss ich bei einem Jahreswechsel machen, speziell im Bereich Steuern?",
+    "answer": "Sie können von Soll- auf Ist-Versteuerung wechseln. Bei MwSt.-Satzänderungen beachten Sie die Übergangssteuerschlüssel.\n",
+    "source": "SelectLine Kassabuch Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 45
+  },
+  {
+    "question": "Wie richte ich die Anbindung an Swissdec für Lohnmeldungen ein?",
+    "answer": "Navigieren Sie zu \"Schnittstellen / Elektronische Lohnmeldung\" (SWISSDEC). Dort finden Sie die Funktionen zur Nutzung des Elektronischen Lohnmeldeverfahrens. Sie benötigen .NET-Komponenten von Microsoft, die Sie von der Microsoft-Homepage herunterladen können.  Die Software unterstützt SWISSDEC 2.2 und 4. Unter \"Programmeinstellungen Swissdec\" können Sie die entsprechenden Einstellungen vornehmen, Zertifikate installieren, die Sicherheitsstufe und den Endpunkt festlegen, sowie die Verbindung testen.\n",
+    "source": "SelectLine Lohn Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 488
+  },
+  {
+    "question": "Wie generiere ich einen Barcode für Artikel via Makroassistent?",
+    "answer": "Dazu habe ich keine Information.\n",
+    "source": "SelectLine Auftrag Handbuch CH Aktuelle Version (1).pdf::None",
+    "chunk": 2240
+  },
+  {
+    "question": "Warum schlägt die Datensicherung fehl, wenn das Zielverzeichnis keine Schreibrechte hat?",
+    "answer": "Der Text erwähnt zwar, dass das Sicherungsverzeichnis vorhanden und verfügbar sein muss, erklärt aber nicht, warum eine Sicherung fehlschlägt, wenn Schreibrechte fehlen. Dazu habe ich keine Information.\n",
+    "source": "SelectLine Kassabuch Handbuch CH Aktuelle Version.pdf::None",
+    "chunk": 358
+  },
+  {
+    "question": "Und wie storniere ich einen bereits erstellten Auftrag in SelectLine?",
+    "answer": "Nach Ausführen der Stornierung über den Schalter erhalten Sie ein Ergebnisprotokoll, in welchem alle stornierten Buchungen aufgelistet sind sowie ein Fehlerprotokoll, falls Exporte nicht zurückgenommen werden konnten.  Es wird aber nicht explizit beschrieben, wie man einen Auftrag storniert.\n",
+    "source": "SelectLine Auftrag Handbuch CH Aktuelle Version (1).pdf::None",
+    "chunk": 0
+  }
+]

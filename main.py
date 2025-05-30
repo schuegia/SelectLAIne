@@ -2,7 +2,7 @@
 import sys, types
 # Stub für fehlendes micropip
 # .\venv\Scripts\activate
-# Imports: pip install python-dotenv pdfplumber wandb langchain langchain-community langchain-core langchain-google-genai tqdm openai faiss-cpu tiktoken
+# Imports: pip install python-dotenv pdfplumber wandb langchain langchain-community langchain-core langchain-google-genai tqdm openai faiss-cpu tiktoken pandas openpyxl tika bs4 lxml pdfplumber pytesseract pillow
 try:
     import micropip
 except ImportError:
@@ -16,6 +16,14 @@ from tqdm import tqdm
 import wandb
 import openai
 import pandas as pd
+from tika import parser
+from bs4 import BeautifulSoup
+from PIL import Image
+import pytesseract
+import io
+import subprocess
+import shlex
+
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
@@ -28,7 +36,9 @@ from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.runnables import RunnableBranch
 from langchain_core.output_parsers import StrOutputParser
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.schema import Document
 
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 SYSTEM_TEMPLATE = """
 Answer the user's questions based on the below context. 
@@ -91,7 +101,114 @@ product_mapping = {
 }
 
 # —————————————————————————————————————————————————
-# 1) Setup & Index-Building (PDF→Chunks→FAISS)
+# 1) OCR Helper: nur auf Bilder anwenden
+# —————————————————————————————————————————————————
+def ocr_with_timeout(pil_img, lang="deu", timeout_s=2):
+    """
+    Speichert das PIL-Image temporär, ruft Tesseract per subprocess
+    mit vollem Pfad auf und bricht nach timeout_s Sekunden ab.
+    """
+    # 1) Temp-Datei anlegen
+    tmp_path = Path("ocr_tmp.png")
+    pil_img.save(tmp_path)
+
+    # 2) Pfad zur tesseract.exe ermitteln
+    #    pytesseract.pytesseract.tesseract_cmd wurde ja schon gesetzt
+    tesseract_exe = pytesseract.pytesseract.tesseract_cmd
+
+    # 3) Kommando als Liste
+    cmd = [
+        tesseract_exe,
+        str(tmp_path),
+        "stdout",
+        "-l", lang
+    ]
+
+    try:
+        # 4) Aufruf mit Timeout
+        res = subprocess.run(
+            cmd,
+            capture_output=True,
+            check=True,
+            timeout=timeout_s
+        )
+        return res.stdout.decode("utf-8")
+    except subprocess.TimeoutExpired:
+        return ""
+    finally:
+        try:
+            tmp_path.unlink()
+        except Exception:
+            pass
+
+def extract_image_only_ocr(path: str) -> str:
+    """
+    Extrahiert nur eingebettete Bilder aus dem PDF,
+    cropt sie auf Seiten­grenzen und führt darauf
+    Tesseract-OCR mit Timeout durch. Zeigt Fortschritt an.
+    """
+    ocr_texts = []
+    filename = Path(path).name
+    with pdfplumber.open(path) as pdf:
+        total_imgs = sum(len(page.images) for page in pdf.pages)
+        pbar = tqdm(total=total_imgs, desc=f"OCR {filename}")
+        for page in pdf.pages:
+            page_w, page_h = page.width, page.height
+            for img in page.images:
+                # Bounding Box clampen
+                x0, y0 = max(0, img["x0"]), max(0, img["y0"])
+                x1, y1 = min(page_w, img["x1"]), min(page_h, img["y1"])
+                if x1 <= x0 or y1 <= y0:
+                    pbar.update(1)
+                    continue
+                # Bild croppen und PIL-Image erzeugen
+                cropped = page.crop((x0, y0, x1, y1))
+                page_image = cropped.to_image(resolution=75)
+                pil_img = page_image.original.convert("RGB")
+                # OCR mit Timeout
+                txt = ocr_with_timeout(pil_img, lang="deu", timeout_s=2)
+                if txt.strip():
+                    ocr_texts.append(f"[OCR-Bild]\n{txt.strip()}\n")
+                pbar.update(1)
+        pbar.close()
+    return "\n".join(ocr_texts)
+
+# —————————————————————————————————————————————————
+# 2) Preprocessing der PDF-Dokumente - Tika-Parsing - Chunk entspricht immer genau einer Überschrift
+# —————————————————————————————————————————————————
+
+def pdf_to_xhtml(path: str) -> str:
+    parsed = parser.from_file(path)
+    return parsed.get('content', '')
+
+def parse_xhtml_sections(xhtml: str) -> list[Document]:
+    soup = BeautifulSoup(xhtml, 'lxml')
+    docs = []
+    current_title = None
+    buffer = []
+    for elem in soup.find_all(['h1','h2','h3','p']):
+        if elem.name in ('h1','h2','h3'):
+            if buffer:
+                docs.append(Document(
+                    page_content=(current_title or '') + "\n\n" + " ".join(buffer),
+                    metadata={"source": current_title}
+                ))
+                buffer = []
+            current_title = elem.get_text(strip=True)
+        else:  # <p>
+            text = elem.get_text(strip=True)
+            if text:
+                buffer.append(text)
+    # letzten Puffer flushen
+    if buffer:
+        docs.append(Document(
+            page_content=(current_title or '') + "\n\n" + " ".join(buffer),
+            metadata={"source": current_title}
+        ))
+    return docs
+
+# —————————————————————————————————————————————————
+# 3) Setup & Index-Building (PDF→Chunks→FAISS)
 # —————————————————————————————————————————————————
 load_dotenv(Path(__file__).parent / ".env")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -124,32 +241,64 @@ to_scan = [
     if p.name not in processed or processed[p.name] < p.stat().st_mtime
 ]
 
-# Chunks erzeugen
+# Strukturierte Chunks via Apache Tika
 docs = []
 for pdf in to_scan:
-    txt = extract_text(str(pdf))
-    for idx, chunk in enumerate(splitter.split_text(txt)):
-        docs.append(Document(page_content=chunk,
-                             metadata={"source": pdf.name, "chunk": idx}))
+    # 0) OCR nur auf Bilder
+    ocr_blob = extract_image_only_ocr(str(pdf))
+    # Falls OCR-Text gefunden wurde, splitte ihn & indexiere
+    if ocr_blob:
+       for idx, chunk in enumerate(splitter.split_text(ocr_blob)):
+        docs.append(Document(
+        page_content=chunk,
+        metadata={"source": f"{pdf.name}::OCR", "chunk": idx}   
+        ))
+
+
+    # 1) XHTML per Tika holen
+    xhtml   = pdf_to_xhtml(str(pdf))
+    # 2) Sections extrahieren
+    sections = parse_xhtml_sections(xhtml)
+
+    # 3) Jede Section in kleine Chunks splitten
+    for sec in sections:
+        # benutzt euren Splitter auf den reinen Text
+        for idx, chunk in enumerate(splitter.split_text(sec.page_content)):
+            docs.append(Document(
+                page_content=chunk,
+                metadata={
+                    "source":  f"{pdf.name}::{sec.metadata.get('source','')}",
+                    "chunk":   idx
+                }
+            ))
     processed[pdf.name] = pdf.stat().st_mtime
 
 # Manifest & Index-Ordner speichern
 INDEX.mkdir(exist_ok=True)
 MANIFEST.write_text(json.dumps(processed))
 
-# FAISS laden oder neu erstellen
+# FAISS laden oder neu erstellen (mit Guard gegen leere docs)
 emb = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+
+# Wenn ein schon gebauter Index existiert, immer zuerst laden
 if (INDEX / "index.faiss").exists():
     db = FAISS.load_local(str(INDEX), emb, allow_dangerous_deserialization=True)
+    # und nur bei neuen docs nachladen
     if docs:
         db.add_documents(docs)
         db.save_local(str(INDEX))
 else:
+    # Es existiert noch kein Index – baue nur, wenn Du docs hast
+    if not docs:
+        raise RuntimeError(
+            "Kein FAISS-Index gefunden und auch keine Dokumente zum Indexieren. "
+            "Bitte lege PDFs in 'data/' ab oder setze FULL_SCAN=true."
+        )
     db = FAISS.from_documents(docs, emb)
     db.save_local(str(INDEX))
 
 # —————————————————————————————————————————————————
-# 2) Model, Retriever, Memory
+# 4) Model, Retriever, Memory
 # —————————————————————————————————————————————————
 model = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest", temperature=0.5)
 retriever = db.as_retriever(
@@ -164,7 +313,7 @@ retriever = db.as_retriever(
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
 # —————————————————————————————————————————————————
-# 3) Query-Transformation Prompt (für Branch & Pipeline)
+# 5) Query-Transformation Prompt (für Branch & Pipeline)
 # —————————————————————————————————————————————————
 query_transform_prompt = ChatPromptTemplate.from_messages([
     MessagesPlaceholder(variable_name="messages"),
@@ -176,7 +325,7 @@ query_transform_prompt = ChatPromptTemplate.from_messages([
 ])
 
 # —————————————————————————————————————————————————
-# 4) Chat-Retriever mit RunnableBranch
+# 6) Chat-Retriever mit RunnableBranch
 #    (erster Aufruf: direkte Nutzung,
 #     Folgefragen: transform → retrieve)
 # —————————————————————————————————————————————————
@@ -191,7 +340,7 @@ query_transforming_retriever_chain = RunnableBranch(
 ).with_config(run_name="chat_retriever_chain")
 
 # —————————————————————————————————————————————————
-# 5) Query Expansion & Reranking Setup
+# 7) Query Expansion & Reranking Setup
 # —————————————————————————————————————————————————
 expansion_prompt = PromptTemplate(
     template="""
@@ -211,7 +360,7 @@ Rank these chunks by relevance; output comma-separated indices only:
 rerank_chain = LLMChain(llm=model, prompt=rerank_prompt)
 
 # —————————————————————————————————————————————————
-# 6) End-to-End Pipeline per Query mit HyDE
+# 8) End-to-End Pipeline per Query mit HyDE
 # —————————————————————————————————————————————————
 def process_query(user_q: str):
     # a) Chat-History aktualisieren
@@ -392,7 +541,7 @@ JSON:
     return ans, top5
 
 # —————————————————————————————————————————————————
-# 8) Testfrageset laden und mit einer Tabelle antworten - ansonsten Drei Beispiel-Queries
+# 9) Testfrageset laden und mit einer Tabelle antworten - ansonsten Drei Beispiel-Queries
 # —————————————————————————————————————————————————
 # Berechne BASE wie oben:
 BASE = Path(__file__).parent
@@ -449,5 +598,3 @@ for q in examples:
         print(f" - {src}#chunk{chunk}")
     wandb.log({"query": q, "answer": ans})
 wandb.finish()
-
-# oh Cöbi
