@@ -10,7 +10,8 @@ Dieses Projekt implementiert ein Retrieval-Augmented Generation (RAG) System fü
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | Code       | https://github.com/schuegia/SelectLAIne                                                                                             |
 | Demo (optional) | (z. B. Streamlit oder Huggingface Space) — _wird aktuell nicht öffentlich gehostet_                                                   |
-| Embedding| "text-embedding-ada-002" von OpenAIEmbedding |
+| Embeddings (Cloud)    | OpenAI Embeddings (`text-embedding-ada-002`) via `langchain_community.embeddings.OpenAIEmbeddings`                         |
+| weitere getestete Embeddings (Lokal)    | Lokale SBERT-Modelle (z. B. [`all-MiniLM-L6-v2`](https://www.sbert.net/docs/pretrained_models.html)) via `sentence-transformers` |
 
 ---
 
@@ -44,7 +45,7 @@ Dieses Projekt implementiert ein Retrieval-Augmented Generation (RAG) System fü
 
 ### Indexing
 - **Structural Chunking**  
-  Apache Tika→XHTML-Parsing von `<h1–h3>` & `<p>` → echte Sections statt starrer Text-Blöcke  
+  Apache Tika→XHTML-Parsing von `<h1–h3>` & `<p>` → Überschriften werden erkannt und Chunks folgen echten Dokumentstrukturen - Sections nach Überschriften gegliedert statt starre Text-Blöcke  
 - **Chunk Refinement**  
   Feinsplit in 1000 Zeichen mit 100 Zeichen Overlap  
 - **Targeted OCR**  
