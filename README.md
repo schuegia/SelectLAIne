@@ -105,25 +105,33 @@ Dieses Projekt implementiert ein Retrieval-Augmented Generation (RAG) System fü
 
 ## Test Method
 
-1. **Fragen** in `questions.xlsx` (Spalte `question`) gepflegt.  
+1. **Manuell Fragen** in `questions.xlsx` erstellt mit verschiedenen Schwerigkeitsgraden (Spalte `question`).  
 2. **Import** via `pandas.read_excel` bzw. Fallback JSON.  
 3. **Pipeline**: `process_query(q)` liefert Antwort + Quell-Chunk.  
 4. **Ergebnis-Tabelle** in Konsole + `rag_results.json`.  
-5. **Manuelle und automatisierte Bewertung** der Antworten (Numerische Scores, Generator-Verifikation).
+5. **Manuelle und automatisierte Bewertung** der Antworten (Manuell und von ChatGPT).
 
+| Score | Beschreibung                                                                                              |
+|-------|-----------------------------------------------------------------------------------------------------------|
+| 0     | falsch (enthält keine oder irreführende Information)                                                      |
+| 1     | teilweise korrekt (teils richtige, teils fehlende oder ungenaue Angaben)                                   |
+| 2     | akzeptabel (keine unpassenden Inhalte)                                                                    |
+| 3     | weitgehend korrekt (Antwort stimmt mit dem Handbuch überein)                                               |
+| 4     | perfekt (inhaltlich und Umfang korrekt, Antwort würde einem Kunden weiterhelfen) 
 ---
 
 ## Results
 
-| Lauf / Konfiguration                        | Avg. Accuracy (0–4) | Bemerkungen                       |
-|---------------------------------------------|---------------------|-----------------------------------|
-| Basis (fixed-chunks + OpenAI Embeddings)    | –                   | –                                 |
-| + Struktur-Chunks via Tika                  | –                   | Besserer Kontext-Bezug            |
-| + HyDE                                      | –                   | Höhere Recall-Rate                |
-| + Post-Retrieval Selection & Compression    | –                   | Präzisere und komprimierte Outputs|
-| + Targeted OCR                              | –                   | UI-Labels und Screenshots abgedeckt|
+| Lauf / Konfiguration                                                | Manual Avg. Accuracy (0–4) | Rating ChatGPT | Bemerkungen                                     |
+|---------------------------------------------------------------------|----------------------------|----------------|-------------------------------------------------|
+| Basis (fixed-chunks + OpenAI Embeddings)                            | 1.66                       | 2.0              | –                                               |
+| + Product Mapping (Keyword-Map)                                      | 1.85                       | 2.3              | Verbesserte Wahl der Quellen                    |
+| + HyDE                                                               | 2.10                       | 2.6              | Höhere Recall-Rate                              |
+| + Post-Retrieval Selection & Compression                             | 1.54                       | 2.1              | Filterung zu restriktiv                         |
+| + Auswahl der Chunks beim Compression erhöht + Generator-Verifikation | 2.32                       | 2.9              | Präzisere und komprimierte Outputs              |
+| + Struktur-Chunks via Tika                                           | 2.68                       | 3.1              | Besserer Kontext-Bezug                          |
+| + Targeted OCR                                                       | 2.51                       | 2.8              | UI-Labels und Screenshots abgedeckt  
 
-_Fülle die Werte nach Deinem Evaluations-Workflow ein._
 
 ---
 
@@ -141,4 +149,4 @@ _Fülle die Werte nach Deinem Evaluations-Workflow ein._
 
 ## License
 
-MIT © Dein Name / SelectLine Software AG 
+Gian Schürch / SelectLine Software AG 
