@@ -9,7 +9,7 @@ Dieses Projekt implementiert ein Retrieval-Augmented Generation (RAG) System fü
 | Name       | URL                                                                                                                                       |
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | Code       | https://github.com/schuegia/SelectLAIne                                                                                             |
-| Demo (optional) | (z. B. Streamlit oder Huggingface Space) — _wird aktuell nicht öffentlich gehostet_                                                   |
+| Demo | Huggingface Space — https://huggingface.co/spaces/schuegia/SelectLAIne - funktioniert momentan nicht                                                  |
 | Embeddings (Cloud)    | OpenAI Embeddings (`text-embedding-ada-002`) via `langchain_community.embeddings.OpenAIEmbeddings`                         |
 | weitere getestete Embeddings (Lokal)    | Lokale SBERT-Modelle (z. B. [`all-MiniLM-L6-v2`](https://www.sbert.net/docs/pretrained_models.html)) via `sentence-transformers` |
 
