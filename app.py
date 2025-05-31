@@ -2,13 +2,16 @@ import os
 import gradio as gr
 from main import process_query
 
-# HF-Secrets werden als ENV vars injiziert
+# .env / HF Secret muss lediglich OPENAI_API_KEY enthalten, wenn du OpenAI-Embeddings nutzt
 os.environ["OPENAI_API_KEY"] = os.getenv("HF_OPENAI_API_KEY")
+
 
 def answer(q):
     ans, sources = process_query(q)
-    src_str = "\n".join(f"{d.metadata['source']}#chunk{d.metadata['chunk']}" for d in sources)
+    src_str = "\n".join(f"{d.metadata['source']}#chunk{d.metadata['chunk']}"
+                        for d in sources)
     return ans, src_str
+
 
 demo = gr.Interface(
     fn=answer,
